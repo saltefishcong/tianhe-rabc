@@ -60,4 +60,13 @@ public class RoleService {
     private Page<Role> findAllAndPage(Pageable pageable){
         return roleRepositiory.findAll(pageable);
     }
+
+    public Role findById(Long id){
+        if(id == null) return null;
+        return roleRepositiory.findById(id).orElse(null);
+    }
+
+    public List<Role> findAll(){
+        return roleRepositiory.findAll();
+    }
 }

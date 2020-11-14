@@ -26,6 +26,7 @@ public class DepartmentService {
     private DepartmentRepositiory departmentRepositiory;
 
     public Department findById(Long id){
+        if(id == null) return null;
         return departmentRepositiory.findById(id).orElse(null);
     }
 
@@ -61,5 +62,9 @@ public class DepartmentService {
         departments.stream().forEach( e -> {
             delete(e.getId());
         });
+    }
+
+    public List<Department> findAll(){
+        return departmentRepositiory.findAll();
     }
 }

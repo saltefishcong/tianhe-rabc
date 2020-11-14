@@ -46,9 +46,8 @@ public class EmployeeRoleService {
         employeeRoleRepositiory.delete(findByEmployeeIdAndRoleId(roleId, employeeId));
     }
 
-    public void deleteAll(Long employeeId, Set<Long> roleIds){
-        roleIds.stream().forEach( e -> {
-            delete(e,employeeId);
-        });
+    public void deleteAllByEmployeeId(Long employeeId){
+       employeeRoleRepositiory.deleteAllByEmployeeId(employeeId);
     }
+
 }

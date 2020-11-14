@@ -3,6 +3,7 @@ package com.congcong.rabc.pojo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @ClassName Employee
@@ -17,7 +18,7 @@ import javax.persistence.*;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -37,4 +38,10 @@ public class Employee {
 
     @Column(name = "dept_id")
     private Long deptId;
+
+    @Transient
+    private Department dept;
+
+    @Transient
+    private List<Role> roles;
 }
